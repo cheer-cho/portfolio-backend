@@ -1,10 +1,19 @@
 {
   "name": "portfolio-server",
   "version": "1.0.0",
-  "description": "Example of a Python Flask API service with traditional Serverless Framework",
-  "author": "",
+  "description": "",
+  "scripts": {
+    "deploy:dev": "serverless deploy --stage dev --region us-east-2",
+    "deploy:prod": "serverless deploy --stage prod --region us-east-2",
+    "node:dev": "node src/handler.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "serverless-http": "^3.2.0",
+    "uuid": "^10.0.0"
+  },
   "devDependencies": {
-    "serverless-python-requirements": "^6.1.0",
-    "serverless-wsgi": "^3.0.4"
+    "serverless-dotenv-plugin": "^6.0.0",
+    "serverless-offline": "^13.7.0"
   }
 }

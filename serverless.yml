@@ -9,19 +9,15 @@ custom:
 
 provider:
   name: aws
-  runtime: python3.12
+  runtime: nodejs20.x
+  region: us-east-2
 
 functions:
   api:
-    handler: wsgi_handler.handler
+    handler: src/index.handler
     events:
-      - http:
-          path: /
-          method: ANY
-      - http:
-          path: /{proxy+}
-          method: ANY
+      - httpApi: "*"
 
 plugins:
-  - serverless-wsgi
-  - serverless-python-requirements
+  - serverless-offline
+  - serverless-dotenv-plugin
